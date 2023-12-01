@@ -1,0 +1,84 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - drawer1
+  - drawer2
+  - drawer3
+  - drawer4
+  - drawer5
+  - drawer6
+  - Outputfor7
+  # - drawer7
+  - out_of_scope
+  - drawer8
+  - drawer9
+
+actions:
+
+  - utter_drawer1
+  - utter_drawer2
+  - utter_drawer3
+  - utter_drawer4
+  - utter_drawer5
+  - utter_drawer6
+  - utter_drawer7
+  - utter_drawer8
+  - utter_drawer9
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_drawer1:
+  - text: "Opening Drawer 1"
+
+  utter_drawer2:
+  - text: "Opening Drawer 2"
+
+  utter_drawer3:
+  - text: "Opening Drawer 3"
+
+  utter_drawer4:
+  - text: "Opening Drawer 4"
+
+  utter_drawer5:
+  - text: "Opening Drawer 5"
+
+  utter_drawer6:
+  - text: "Opening Drawer 6"
+
+  utter_drawer7:
+  - text: "Opening Drawer 7"
+
+  utter_drawer8:
+  - text: "Opening Drawer 8"
+
+  utter_drawer9:
+  - text: "Opening Drawer 9"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
