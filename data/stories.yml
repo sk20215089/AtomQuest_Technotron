@@ -1,0 +1,80 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: story_7
+  steps:
+  - intent: Outputfor7
+  - action: utter_drawer7
+
+- story: drawer_1
+  steps:
+  - intent: drawer1
+  - action: utter_drawer1
+
+- story: drawer_2
+  steps:
+  - intent: drawer2
+  - action: utter_drawer2
+
+- story: drawer_3
+  steps:
+  - intent: drawer3
+  - action: utter_drawer3
+
+- story: drawer_4
+  steps:
+  - intent: drawer4
+  - action: utter_drawer4
+
+- story: drawer_5
+  steps:
+  - intent: drawer5
+  - action: utter_drawer5
+
+- story: drawer_6
+  steps:
+  - intent: drawer6
+  - action: utter_drawer6
+
+- story: drawer_8
+  steps:
+  - intent: drawer8
+  - action: utter_drawer8
+
+- story: drawer_9
+  steps:
+  - intent: drawer9
+  - action: utter_drawer9
+
+- story: snakbdaksbdkjs
+  steps:
+  - intent: nlu_fallback
+  - action: utter_drawer1

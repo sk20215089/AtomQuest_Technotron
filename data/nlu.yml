@@ -1,0 +1,236 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: drawer1
+  examples: |
+    - give me arduino
+    - Give me Arduino
+    - Arduino
+    - provide me with arduino
+    - Arduino is what i want
+    - open drawer with arduinO
+    - can i have ARDUINO?
+    - Can i have arduino?
+    - help me with Arduino
+
+- intent: drawer2
+  examples: |
+    - give me Nodemc
+    - Give me node mc
+    - Node mc
+    - Nodemc
+    - nodemc
+    - provide me with Nodemc
+    - nodemc is what i want
+    - open drawer with Nodemc
+    - can i have nodEmc
+    - Can i have nodemc?
+    - help me with nodemc
+
+- intent: drawer3
+  examples: |
+    - give me Raspberry Pi
+    - Give me Raspberry pi
+    - Raspberry pi
+    - provide me with raspberrypi
+    - raspberrypi is what i want
+    - open drawer with raspberrypi
+    - can i have raspberrypi?
+    - Can i have Raspberry pi?
+    - raspberrypi
+    - provide me with raspberry-pi
+    - Raspberry-pi is what i want
+    - open drawer with raSpberrypi
+
+- intent: drawer4
+  examples: |
+    - give me Photodiode
+    - Give me Photo diode
+    - Photo diode
+    - Photodiode
+    - photodiode
+    - provide me with Photodiode
+    - photodiode is what i want
+    - open drawer with Photodiode
+    - can i have photo-diode
+    - Can i have photodiode?
+    - help me with photodiode
+
+- intent: drawer5
+  examples: |
+    - give me IRsensors
+    - Give me Ir-Sensors
+    - Ir-Sensors
+    - IRsensors
+    - irsensors
+    - provide me with IRsensors
+    - irsensors is what i want
+    - open drawer with IRsensors
+    - can i have ir-sensors
+    - Can i have irsensors?
+    - help me with irsensors
+
+- intent: drawer6
+  examples: |
+    - give me Screws
+    - Give me nut
+    - nut
+    - screws
+    - bolts
+    - bolt
+    - provide me with Screws
+    - screws is what i want
+    - open drawer with Screws
+    - can i have nut
+    - Can i have screws?
+    - help me with screws
+    - provide me with bolts
+    - bolt is what i want
+    - open drawer with Bolt
+    - can i have bolt
+
+- intent: Outputfor7
+  examples: |
+    - give me Actuator
+    - Give me actuators
+    - actuators
+    - actuators
+    - provide me with Actuator
+    - actuators is what i want
+    - open drawer with actuators
+    - can i have actuator
+    - Can i have actuators?
+    - help me with actuators
+
+- intent: drawer8
+  examples: |
+    - give me Microphone
+    - Give me Micro-Phone
+    - Micro-Phone
+    - Microphone
+    - microphone
+    - provide me with Microphone
+    - microphone is what i want
+    - open drawer with Microphone
+    - can i have Micro-Phone
+    - Can i have microphone?
+    - help me with microphone
+
+- intent: drawer9
+  examples: |
+    - give me Batteries
+    - Give me cells
+    - cells
+    - Batteries
+    - batteries
+    - provide me with Batteries
+    - batteries is what i want
+    - open drawer with Batteries
+    - can i have cells
+    - Can i have batteries?
+    - help me with batteries
+    - give me a 5v battery
+    - voltage battery
+    - 6V CELL
+
+- intent: out_of_scope
+  examples: |
+    - jvhashvewbjdjsHK
+    - food
+    - bar
+
+    
+
+
+    
+
+
