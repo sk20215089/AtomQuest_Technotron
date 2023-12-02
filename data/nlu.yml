@@ -43,6 +43,7 @@ nlu:
   examples: |
     - no
     - n
+    - nope
     - never
     - I don't think so
     - don't like that
