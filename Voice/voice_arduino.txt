@@ -1,0 +1,53 @@
+#include <DHT.h>
+#define FLAME_SENSOR_PIN 6
+#define DHTPIN 2       // DHT data pin
+#define DHTTYPE DHT11 
+#define LED_PIN 11  // DHT type (DHT11 or DHT22)
+DHT dht(DHTPIN, DHTTYPE); 
+
+#define GAS_SENSOR_PIN A0
+int val=0;
+void setup() {
+  Serial.begin(115200);
+  pinMode(FLAME_SENSOR_PIN, INPUT); // Set the flame sensor pin as INPUT
+  pinMode(LED_PIN, OUTPUT);
+  dht.begin();
+}
+
+void loop() {
+  // Read temperature and humidity from DHT sensor
+  float temperature = dht.readTemperature();
+  float humidity = dht.readHumidity();
+  
+  if(Serial.available())
+    {
+      String dat = Serial.readString();
+      val = dat.toInt();
+    }
+  // Read gas value from MQ2 sensor
+  int flamereading = digitalRead(FLAME_SENSOR_PIN);
+  int gasValue = analogRead(GAS_SENSOR_PIN);
+  
+  
+  if(flamereading == 1)
+  {
+    flamereading = 0;
+    Serial.print(temperature);
+    Serial.print(",");
+    Serial.print(humidity);
+    Serial.print(",");
+    Serial.print(gasValue);
+    Serial.print(",");
+    Serial.println(flamereading);
+    delay(3000);
+  }
+  
+  else
+  {
+      Serial.println("Hazard!");
+      delay(1000);
+  }
+  digitalWrite(LED_PIN,val);
+
+  // Delay for 5 seconds
+}
