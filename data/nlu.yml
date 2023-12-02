@@ -177,6 +177,7 @@ nlu:
     - bolt is what i want
     - open drawer with Bolt
     - can i have bolt
+    - help me with some bolts
 
 - intent: Outputfor7
   examples: |
