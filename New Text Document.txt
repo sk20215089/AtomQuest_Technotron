@@ -1,0 +1,129 @@
+rasa run -m models --enable-api --cors "*" --debug
+
+import speech_recognition as sr
+import requests
+# Define the recognizer
+recognizer = sr.Recognizer()
+# Use the device with device_index=14 (change to your device index)
+# while True:
+#     with sr.Microphone(device_index=14) as source:
+#         print("Say something...")
+#         audio = recognizer.listen(source)
+# # Use Google Web Speech API to transcribe the speech
+#     try:
+#         print("Recognizing...")
+#         text = recognizer.recognize_google(audio)
+#         print(f"You said: {text}")
+#     except sr.UnknownValueError:
+#         print("Sorry, could not understand the audio")
+#     except sr.RequestError as e:
+#         print(f"Error: {e}")
+# Use the default microphone as the source
+with sr.Microphone() as source:
+    print("Say something...")
+    # Adjust for ambient noise levels for better recognition
+    recognizer.adjust_for_ambient_noise(source)
+    audio = recognizer.listen(source)
+
+# Use Google Web Speech API to transcribe the speech
+text="no output"
+try:
+    print("Recognizing...")
+    text = recognizer.recognize_google(audio)
+    # print(f"You said: {text}")
+    print(text)
+except sr.UnknownValueError:
+    print("Sorry, could not understand the audio")
+except sr.RequestError as e:
+    print(f"Error: {e}")
+rasa_endpoint = "http://localhost:5005/webhooks/rest/webhook"
+recognized_text=text.lower();
+message = {
+    "message": recognized_text
+}
+response = requests.post(rasa_endpoint, json=message)
+
+# If the request is successful (status code 200)
+if response.status_code == 200:
+    # Extract and print the bot's response
+    bot_response = response.json()
+    print("Bot:", bot_response[0]['text'])  # Assuming the first response is what you're looking for
+else:
+    print("Failed to get a response from Rasa server")
+
+
+
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+
+const char* ssid = "S20fe";
+const char* password = "Sarthak@1009";
+const char* mqtt_server = "broker.mqtt-dashboard.com";
+const char* topic = "technotron_atomquest_2023"; // Specify your MQTT topic here
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+
+void setup_wifi() {
+  delay(10);
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  randomSeed(micros());
+
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+}
+
+void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Message received on topic: ");
+  Serial.println(topic);
+  Serial.print("Payload: ");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
+}
+
+void reconnect() {
+  while (!client.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    String clientId = "ESP8266Client-";
+    clientId += String(random(0xffff), HEX);
+    if (client.connect(clientId.c_str())) {
+      Serial.println("connected");
+      client.subscribe(topic); // Subscribe to the specified topic
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+      delay(5000);
+    }
+  }
+}
+
+void setup() {
+  pinMode(BUILTIN_LED, OUTPUT);
+  Serial.begin(115200);
+  setup_wifi();
+  client.setServer(mqtt_server, 1883);
+  client.setCallback(callback);
+}
+
+void loop() {
+  if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
+}
